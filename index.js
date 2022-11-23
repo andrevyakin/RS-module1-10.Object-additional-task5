@@ -34,9 +34,10 @@ const usersObject = {
     }
 };
 
-getAdultUsers = arrayOrObject => {
+const getAdultUsers = arrayOrObject => {
     return Array.isArray(arrayOrObject)
-        ? arrayOrObject.filter(i => i.age >= 18)
+        ? arrayOrObject
+            .filter(i => i.age >= 18)
         : Object.values(arrayOrObject)
             .reduce((acc, el) => [...acc, el], [])
             .filter(i => i.age >= 18);
